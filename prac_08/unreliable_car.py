@@ -1,12 +1,13 @@
-class Car:
-    """Represent a Car object."""
+from Prac_08.car import Car
+import random
 
-    def __init__(self, name="", fuel=0):
-        """Initialise a Car instance.
 
-        name: string, reference name for car
-        fuel: float, one unit of fuel drives one kilometre
-        """
+class UnreliableCar(Car):
+    """Specialised version of a Car that includes unreliability"""
+
+    def __init__(self, name, fuel, reliability):
+        """Initialise a UnreliableCar instance. """
+        self.reliability = reliability
         self.name = name
         self.fuel = fuel
         self.odometer = 0
@@ -26,6 +27,13 @@ class Car:
         Drive given distance if car has enough fuel
         or drive until fuel runs out return the distance actually driven.
         """
+        random_reliability = random.randint(0, 100)
+
+        if random_reliability > self.reliability:
+            distance = 0
+        else:
+            pass
+
         if distance > self.fuel:
             distance = self.fuel
             self.fuel = 0
